@@ -1,0 +1,23 @@
+{
+  "name": "web-crawling-api",
+  "version": "1.0.0",
+  "description": "**Problem Statement** Create an API to crawl reviews from website Tigerdirect. API should take any review page link as input & give Json as output.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekyskr/Web-Crawling-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geekyskr/Web-Crawling-API/issues"
+  },
+  "homepage": "https://github.com/geekyskr/Web-Crawling-API#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
