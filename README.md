@@ -16,4 +16,4 @@ List of Reviews where each review is identified by :
 
 **Implementation Technologies**
 - NodeJs
-- Node Js lib puppeteer for crawling data from a website.
+- Node Js lib cheerio for crawling data from a website.
