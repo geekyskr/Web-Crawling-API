@@ -4,8 +4,7 @@ as input & give Json as output.
 
 **Input**
 Any http://www.tigerdirect.com/ review page link. Eg :
-https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=640254&CatId=3
-839
+https://www.tigerdirect.com/applications/SearchTools/item-details.asp?EdpNo=640254&CatId=3839
 
 **Output**
 Response should contain :
