@@ -22,17 +22,24 @@ function getAllReviews($) {
     let customerReviews = [];
     $("#customerReviews #customerReviews .review").each((i, el) => {
         let reviewObject = {};
-        reviewObject["Overall-Rating"] = $(el).find(".leftCol .itemReview dd .itemRating strong").text();
+        reviewObject["Reviewer"] = $(el).find(".leftCol .reviewer dd:nth-child(2)").text();
+        reviewObject["Date"] = $(el).find(".leftCol .reviewer dd:nth-child(4)").text();
+
+        let rating = {};
         let categoryRating = {};
         categoryRating.value = $(el).find(".leftCol .itemReview dd:nth-child(4)").text();
         categoryRating.Features = $(el).find(".leftCol .itemReview dd:nth-child(6)").text();
         categoryRating.Quality = $(el).find(".leftCol .itemReview dd:nth-child(8)").text();
         categoryRating.Performance = $(el).find(".leftCol .itemReview dd:nth-child(10)").text();
-        reviewObject["Category-Rating"] = categoryRating;
-        reviewObject["Reviewer"] = $(el).find(".leftCol .reviewer dd:nth-child(2)").text();
-        reviewObject["Date"] = $(el).find(".leftCol .reviewer dd:nth-child(4)").text();
-        reviewObject["Comment-Title"] = $(el).find(".rightCol blockquote h6").text();
-        reviewObject["Comment-Body"] = $(el).find(".rightCol blockquote p").text();
+        rating["Overall-Rating"] = $(el).find(".leftCol .itemReview dd .itemRating strong").text();;
+        rating["Category-Rating"] = categoryRating;
+        reviewObject["Rating"] = rating;
+
+        let comment = {};
+        comment["Title"] = $(el).find(".rightCol blockquote h6").text();
+        comment["Body"] = $(el).find(".rightCol blockquote p").text();
+        reviewObject["Comment"] = comment;
+        
         customerReviews.push(reviewObject);
     })
     return customerReviews;
