@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-import { getReviews } from "../controllers/getReviewsController";
+import { getReviews } from "../controllers/getReviewsController.js";
 
 import bodyParser from "body-parser";
 const jsonParser = bodyParser.json();

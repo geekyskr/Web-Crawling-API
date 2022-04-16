@@ -4,7 +4,7 @@
   "description": "**Problem Statement** Create an API to crawl reviews from website Tigerdirect. API should take any review page link as input & give Json as output.",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node src/routes/routes.js"
+    "start": "node src/routes/routes.js"
   },
   "repository": {
     "type": "git",
