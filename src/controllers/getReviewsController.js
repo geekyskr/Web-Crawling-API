@@ -1,18 +1,28 @@
 import fetch from "node-fetch";
 import cheerio from "cheerio";
-import { validateRequestPayload } from "../validators/payloadValidator.js";
-
+import { validateRequest } from "../validators/payloadValidator.js";
 
 export async function getReviews(req, res) {
     const reqPayload = req.body;
-    validateRequestPayload(reqPayload);
+    try {
+        validateRequest(reqPayload, req);
+    } catch(error) {
+        res.status(400).send(error);
+    }
+    const defaultPageNo = 1;
+    const defaultLimit = 5;
     const pageLink = reqPayload.link;
+    const page = req.query.page == undefined ? defaultPageNo: req.query.page;
+    const limit = req.query.limit == undefined ? defaultLimit: req.query.limit;
     try {
         const responce = await fetch(pageLink);
         const html = await responce.text();
         const $ = cheerio.load(html);
         const customerReviews = getAllReviews($);
-        res.status(200).send(customerReviews);
+        const startIndex = (page-1)*limit;
+        const endIndex = page*limit;
+        const customerReviewsToSend = customerReviews.slice(startIndex, endIndex);
+        res.status(200).send(customerReviewsToSend);
     } catch (error) {
         res.status(500).send(error);
     }
